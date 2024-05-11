@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy } from "react";
 import type { RouteObject } from "react-router";
 import { Outlet } from "react-router-dom";
 
@@ -21,29 +21,6 @@ import HomePage from "@src/pages";
 
 const LoginPage = lazy(() => import("@src/pages/auth/login"));
 
-const Routes: React.FC = () => {
-  const role = localStorage.getItem("userRole");
-
-  if (role === "admin") {
-    return (
-      <DashboardLayout>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
-      </DashboardLayout>
-    );
-  } else if (role === "doctor") {
-    return (
-      // <DoctorLayout>
-      //   <Suspense fallback={<div>Loading...</div>}>
-      //     <Outlet />
-      //   </Suspense>
-      // </DoctorLayout>
-      <></>
-    );
-  }
-};
-
 export const routes: RouteObject[] = [
   {
     path: "/login",
@@ -52,7 +29,11 @@ export const routes: RouteObject[] = [
   {
     element: (
       <ProtectedRoute>
-        <Routes />
+        <DashboardLayout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </DashboardLayout>
       </ProtectedRoute>
     ),
     children: [

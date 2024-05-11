@@ -3,6 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@src/contexts/auth/AuthProvider";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import styled from "@emotion/styled";
+
+export const ProgressCircleBox = styled(Box)({
+  width: "100vw",
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -21,7 +30,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   useEffect(() => {
     const checkTokenExpiration = setInterval(() => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("accessToken");
       if (!token) {
         clearInterval(checkTokenExpiration);
         return;
@@ -36,13 +45,13 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     }, 60000);
 
     return () => clearInterval(checkTokenExpiration);
-  }, []);
+  }, [logout]);
 
-  if (loading) {
+  if (loading || !isAuthenticated) {
     return (
-      <Box>
+      <ProgressCircleBox>
         <CircularProgress />
-      </Box>
+      </ProgressCircleBox>
     );
   }
 

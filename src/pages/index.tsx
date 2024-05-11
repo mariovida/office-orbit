@@ -18,13 +18,7 @@ const Page = () => {
           <Grid container>
             <Grid xs={12}>
               <Stack direction="row" justifyContent="space-between">
-                <div>
-                  {role === "doctor" ? (
-                    <Typography variant="h4">Hi, Doctor</Typography>
-                  ) : (
-                    <Typography variant="h4">Hi, Admin</Typography>
-                  )}
-                </div>
+                <Typography variant="h4">Hi</Typography>
               </Stack>
             </Grid>
           </Grid>
