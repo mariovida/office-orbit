@@ -200,8 +200,11 @@ export const SideNav: FC<SideNavProps> = (props) => {
 
   const handleLogout = useCallback(async (): Promise<void> => {
     try {
-      localStorage.removeItem("token");
-      //router.push(paths.login);
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("tokenExpiry");
+      localStorage.removeItem("userSecret");
+      router.push(paths.login);
     } catch (err) {
       console.error(err);
     }

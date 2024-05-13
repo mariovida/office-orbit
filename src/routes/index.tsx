@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import ProtectedRoute from "./protected-routes";
 
 import { Layout as DashboardLayout } from "@src/layouts";
-// import { Layout as DoctorLayout } from "@src/layouts/doctor-layout";
 import HomePage from "@src/pages";
 // import PatientsPage from "@src/pages/patients/Patients";
 // import AddNewPatientPage from "@src/pages/patients/AddNewPatient";

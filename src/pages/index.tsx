@@ -18,7 +18,7 @@ const Page = () => {
           <Grid container>
             <Grid xs={12}>
               <Stack direction="row" justifyContent="space-between">
-                <Typography variant="h4">Hi</Typography>
+                <Typography variant="h4"></Typography>
               </Stack>
             </Grid>
           </Grid>
