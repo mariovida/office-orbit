@@ -91,19 +91,19 @@ const useCssVars = (color: NavColor): Record<string, string> => {
         } else {
           return {
             "--nav-bg": customColors.menu_bar.background,
-            "--nav-color": customColors.text.primary,
+            "--nav-color": customColors.menu_bar.text,
             "--nav-border-color": "transparent",
             "--nav-logo-border": "transparent",
             "--nav-section-title-color": customColors.neutral[400],
-            "--nav-item-color": customColors.green.dark,
+            "--nav-item-color": customColors.menu_bar.text,
             "--nav-item-hover-bg": customColors.menu_bar.active,
             "--nav-item-active-bg": customColors.menu_bar.active,
-            "--nav-item-active-color": customColors.green.dark,
+            "--nav-item-active-color": customColors.menu_bar.text,
             "--nav-item-disabled-color": customColors.neutral[500],
-            "--nav-item-icon-color": customColors.green.dark,
-            "--nav-item-icon-active-color": customColors.green.dark,
+            "--nav-item-icon-color": customColors.menu_bar.text,
+            "--nav-item-icon-active-color": customColors.menu_bar.text,
             "--nav-item-icon-disabled-color": customColors.neutral[500],
-            "--nav-item-chevron-color": customColors.green.dark,
+            "--nav-item-chevron-color": customColors.menu_bar.text,
             "--nav-scrollbar-color": customColors.text.primary,
           };
         }
@@ -136,6 +136,7 @@ const LogoStack = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+  gap: 0;
   position: relative;
   width: 100%;
   height: 110px;
@@ -158,6 +159,7 @@ const LogoStack = styled.div`
 `;
 
 const LogoImage = styled.div`
+  display: none;
   width: 70px;
   height: 70px;
 `;

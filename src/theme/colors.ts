@@ -42,8 +42,9 @@ export const text = {
 };
 
 export const menu_bar = {
-  background: "#EBF3E8",
-  active: "#B2C8BA",
+  background: "#EDEEF7",
+  text: "#40408C",
+  active: "#a8acd7",
 };
 
 export const success = {
