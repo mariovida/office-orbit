@@ -79,8 +79,8 @@ export const ErrorStack = styled(Stack)({
   textAlign: "center",
   padding: "16px",
   borderRadius: "8px",
-  border: "1px solid",
-  borderColor: customColors.error.main,
+  //border: "1px solid",
+  //borderColor: customColors.error.main,
   backgroundColor: customColors.error.light,
 
   p: {
