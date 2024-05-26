@@ -41,6 +41,9 @@ const Page: React.FC = () => {
   const { login } = useAuth();
   const [errorMessage, setErrorMessage] = React.useState("");
   const [showLoading, setShowLoading] = useState(false);
+  const [passwordForgotLink, setPasswordForgotLink] = useState(false);
+
+  console.log(passwordForgotLink);
 
   const formik = useFormik<FormValues>({
     initialValues: {
@@ -87,6 +90,10 @@ const Page: React.FC = () => {
     },
   });
 
+  const forgotPasswordLink = () => {
+    setPasswordForgotLink(true);
+  };
+
   return (
     <>
       <Seo title="Login" />
@@ -98,42 +105,58 @@ const Page: React.FC = () => {
             </IllustrationBox>
             <LoginStack>
               <FormCard>
-                <Typography variant="h3">Log in</Typography>
-                {errorMessage && (
-                  <ErrorStack>
-                    <Typography>{errorMessage}</Typography>
-                  </ErrorStack>
+                {!passwordForgotLink && (
+                  <>
+                    <Typography variant="h3">Log in</Typography>
+                    <Typography variant="subtitle1">
+                      Welcome back! Please log in to continue.
+                    </Typography>
+                    {errorMessage && (
+                      <ErrorStack>
+                        <Typography>{errorMessage}</Typography>
+                      </ErrorStack>
+                    )}
+                    <form noValidate onSubmit={formik.handleSubmit}>
+                      <Stack spacing={2}>
+                        <TextField
+                          fullWidth
+                          label="Email address"
+                          name="email"
+                          type="email"
+                          value={formik.values.email}
+                          onChange={formik.handleChange}
+                          error={formik.touched.email && Boolean(formik.errors.email)}
+                          helperText={formik.touched.email && formik.errors.email}
+                        />
+                        <TextField
+                          fullWidth
+                          label="Password"
+                          name="password"
+                          type="password"
+                          value={formik.values.password}
+                          onChange={formik.handleChange}
+                          error={formik.touched.password && Boolean(formik.errors.password)}
+                          helperText={formik.touched.password && formik.errors.password}
+                        />
+                      </Stack>
+                      <Typography
+                        sx={{
+                          display: "inline-block",
+                          fontSize: "14px",
+                          color: customColors.purple.main,
+                          marginTop: "16px",
+                          cursor: "pointer",
+                        }}
+                        onClick={forgotPasswordLink}
+                      >
+                        Forgot password?
+                      </Typography>
+                      <Button fullWidth size="large" type="submit" disabled={showLoading}>
+                        Login
+                      </Button>
+                    </form>
+                  </>
                 )}
-                <form noValidate onSubmit={formik.handleSubmit}>
-                  <Stack spacing={2}>
-                    <TextField
-                      fullWidth
-                      label="Email address"
-                      name="email"
-                      type="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      error={formik.touched.email && Boolean(formik.errors.email)}
-                      helperText={formik.touched.email && formik.errors.email}
-                    />
-                    <TextField
-                      fullWidth
-                      label="Password"
-                      name="password"
-                      type="password"
-                      value={formik.values.password}
-                      onChange={formik.handleChange}
-                      error={formik.touched.password && Boolean(formik.errors.password)}
-                      helperText={formik.touched.password && formik.errors.password}
-                    />
-                  </Stack>
-                  <Typography sx={{ fontSize: "14px", marginTop: "16px" }}>
-                    Forgot password?
-                  </Typography>
-                  <Button fullWidth size="large" type="submit" disabled={showLoading}>
-                    Login
-                  </Button>
-                </form>
               </FormCard>
             </LoginStack>
           </Grid>

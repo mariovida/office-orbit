@@ -27,14 +27,14 @@ export const LoginStack = styled(Stack)({
   top: "50%",
   //right: "0",
   //transform: "translate(-50%, -50%)",
-  right: "64px",
+  right: "32px",
   transform: "translate(0%, -50%)",
   maxWidth: "450px",
   width: "100%",
-  height: "calc(100% - 128px)",
+  height: "calc(100% - 64px)",
   justifyContent: "center",
   margin: "0 auto",
-  padding: "32px",
+  padding: "32px 48px",
   backgroundColor: customColors.neutral[100],
   borderRadius: "14px",
   //boxShadow:"rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px",
@@ -43,9 +43,14 @@ export const LoginStack = styled(Stack)({
   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
   backdropFilter: "blur(1px)",
 
-  "& h3": {
-    marginBottom: "40px",
+  "& h3, & h6": {
+    marginBottom: "8px",
     color: customColors.purple.main,
+    textAlign: "center",
+  },
+
+  "& h6": {
+    marginBottom: "48px",
   },
 
   "@media screen and (max-width:900px)": {
