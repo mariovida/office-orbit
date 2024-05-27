@@ -37,11 +37,12 @@ export const LoginStack = styled(Stack)({
   padding: "32px 48px",
   backgroundColor: customColors.neutral[100],
   borderRadius: "14px",
-  //boxShadow:"rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px",
+  boxShadow:
+    "rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px",
 
-  background: "rgba(254, 254, 254, 0.59)",
-  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur(1px)",
+  //background: "rgba(254, 254, 254, 0.59)",
+  //boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+  //backdropFilter: "blur(1px)",
 
   "& h3, & h6": {
     marginBottom: "8px",

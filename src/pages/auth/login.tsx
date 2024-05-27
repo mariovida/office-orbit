@@ -43,8 +43,6 @@ const Page: React.FC = () => {
   const [showLoading, setShowLoading] = useState(false);
   const [passwordForgotLink, setPasswordForgotLink] = useState(false);
 
-  console.log(passwordForgotLink);
-
   const formik = useFormik<FormValues>({
     initialValues: {
       email: "",
@@ -91,7 +89,11 @@ const Page: React.FC = () => {
   });
 
   const forgotPasswordLink = () => {
-    setPasswordForgotLink(true);
+    if (!passwordForgotLink) {
+      setPasswordForgotLink(true);
+    } else {
+      setPasswordForgotLink(false);
+    }
   };
 
   return (
@@ -105,7 +107,7 @@ const Page: React.FC = () => {
             </IllustrationBox>
             <LoginStack>
               <FormCard>
-                {!passwordForgotLink && (
+                {!passwordForgotLink ? (
                   <>
                     <Typography variant="h3">Log in</Typography>
                     <Typography variant="subtitle1">
@@ -153,6 +155,42 @@ const Page: React.FC = () => {
                       </Typography>
                       <Button fullWidth size="large" type="submit" disabled={showLoading}>
                         Login
+                      </Button>
+                    </form>
+                  </>
+                ) : (
+                  <>
+                    <Typography
+                      sx={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        fontSize: "14px",
+                        color: customColors.purple.main,
+                        marginBottom: "40px",
+                        cursor: "pointer",
+                      }}
+                      onClick={forgotPasswordLink}
+                    >
+                      Go back
+                    </Typography>
+                    <Typography variant="h3">Reset password</Typography>
+                    <Typography variant="subtitle1">
+                      Enter your email address and we'll send you instructions for reseting your
+                      password.
+                    </Typography>
+                    <form>
+                      <TextField
+                        fullWidth
+                        label="Email address"
+                        name="email"
+                        type="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        error={formik.touched.email && Boolean(formik.errors.email)}
+                        helperText={formik.touched.email && formik.errors.email}
+                      />
+                      <Button fullWidth size="large" type="submit" disabled={showLoading}>
+                        Confirm
                       </Button>
                     </form>
                   </>
