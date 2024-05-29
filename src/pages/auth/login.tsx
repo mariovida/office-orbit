@@ -184,10 +184,10 @@ const Page: React.FC = () => {
                         label="Email address"
                         name="email"
                         type="email"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                        error={formik.touched.email && Boolean(formik.errors.email)}
-                        helperText={formik.touched.email && formik.errors.email}
+                        //value={formik.values.email}
+                        //onChange={formik.handleChange}
+                        //error={formik.touched.email && Boolean(formik.errors.email)}
+                        //helperText={formik.touched.email && formik.errors.email}
                       />
                       <Button fullWidth size="large" type="submit" disabled={showLoading}>
                         Confirm
