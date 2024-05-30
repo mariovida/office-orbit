@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 
 import styled from "@emotion/styled";
 import customColors from "@src/theme/colors";
+import { Calculate } from "@mui/icons-material";
 
 export const IllustrationBox = styled(Box)({
   maxWidth: "100vw",
@@ -19,6 +20,19 @@ export const IllustrationBox = styled(Box)({
     objectFit: "cover",
     width: "100%",
     height: "100%",
+  },
+});
+
+export const ImageBox = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginBottom: "80px",
+  "& img": {
+    width: "90%",
+  },
+  "@media screen and (max-width:900px)": {
+    display: "none",
   },
 });
 
@@ -55,8 +69,11 @@ export const LoginStack = styled(Stack)({
   },
 
   "@media screen and (max-width:900px)": {
+    width: "calc(100% - 32px)",
+    padding: "24px",
     right: "unset",
     left: "50%",
+    transform: "translate(-50%, -50%)",
   },
 });
 

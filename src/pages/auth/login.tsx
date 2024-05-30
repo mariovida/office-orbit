@@ -10,7 +10,13 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { LoginStack, FormCard, ErrorStack, IllustrationBox } from "@src/pages/auth/styles/login";
+import {
+  LoginStack,
+  ImageBox,
+  FormCard,
+  ErrorStack,
+  IllustrationBox,
+} from "@src/pages/auth/styles/login";
 import { Seo } from "@src/components/seo";
 import { useAuth } from "@src/contexts/auth/AuthProvider";
 import { useAppDispatch } from "@src/hooks/use-dispatch";
@@ -109,6 +115,9 @@ const Page: React.FC = () => {
               <FormCard>
                 {!passwordForgotLink ? (
                   <>
+                    <ImageBox>
+                      <img src="./login-illustration.png" />
+                    </ImageBox>
                     <Typography variant="h3">Log in</Typography>
                     <Typography variant="subtitle1">
                       Welcome back! Please log in to continue.
@@ -162,17 +171,27 @@ const Page: React.FC = () => {
                   <>
                     <Typography
                       sx={{
+                        position: "absolute",
+                        top: "32px",
+                        right: "48px",
                         display: "inline-flex",
                         alignItems: "center",
                         fontSize: "14px",
                         color: customColors.purple.main,
-                        marginBottom: "40px",
+                        marginBottom: "80px",
                         cursor: "pointer",
+
+                        "&:hover": {
+                          textDecoration: "underline",
+                        },
                       }}
                       onClick={forgotPasswordLink}
                     >
                       Go back
                     </Typography>
+                    <ImageBox>
+                      <img src="./forgotpass-illustration.png" />
+                    </ImageBox>
                     <Typography variant="h3">Reset password</Typography>
                     <Typography variant="subtitle1">
                       Enter your email address and we'll send you instructions for reseting your
