@@ -8,7 +8,13 @@ import Typography from "@mui/material/Typography";
 
 import styled from "@emotion/styled";
 import customColors from "@src/theme/colors";
-import { Calculate } from "@mui/icons-material";
+
+export const ProgressCircleBox = styled(Box)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "24px",
+});
 
 export const IllustrationBox = styled(Box)({
   maxWidth: "100vw",

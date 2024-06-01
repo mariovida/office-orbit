@@ -11,12 +11,14 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 import {
+  ProgressCircleBox,
   LoginStack,
   ImageBox,
   FormCard,
   ErrorStack,
   IllustrationBox,
 } from "@src/pages/auth/styles/login";
+import CircularProgress from "@mui/material/CircularProgress";
 import { Seo } from "@src/components/seo";
 import { useAuth } from "@src/contexts/auth/AuthProvider";
 import { useAppDispatch } from "@src/hooks/use-dispatch";
@@ -69,7 +71,7 @@ const Page: React.FC = () => {
           navigate("/");
         } else {
           setShowLoading(false);
-          setErrorMessage("Incorrect email or password. Please try again.");
+          setErrorMessage("Incorrect email or password.");
         }
         if (response && response.error && response.error === "Your account is not active") {
           setShowLoading(false);
@@ -79,15 +81,15 @@ const Page: React.FC = () => {
           setErrorMessage("You have to set up your password.");
         } else {
           setShowLoading(false);
-          setErrorMessage("Incorrect email or password. Please try again.");
+          setErrorMessage("Incorrect email or password.");
         }
       } catch (error) {
         if (error === "HTTP status 401: Unauthorized") {
           setShowLoading(false);
-          setErrorMessage("Incorrect email or password. Please try again.");
+          setErrorMessage("Incorrect email or password.");
         } else {
           setShowLoading(false);
-          setErrorMessage("An error occurred. Please try again.");
+          setErrorMessage("An error occurred.");
         }
       }
       setShowLoading(false);
@@ -162,6 +164,11 @@ const Page: React.FC = () => {
                       >
                         Forgot password?
                       </Typography>
+                      {/* {showLoading && (
+                        <ProgressCircleBox>
+                          <CircularProgress />
+                        </ProgressCircleBox>
+                      )} */}
                       <Button fullWidth size="large" type="submit" disabled={showLoading}>
                         Login
                       </Button>
